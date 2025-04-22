@@ -1,11 +1,17 @@
 nav{
   height: 120px;
+  display: flexbox;
   background-color: #4056A1;
   color:#FFFFFF;
-}
-
-span{
-  font-family: Bungee, sans-serif;
+  position: fixed;
+  width: 100vw;
   padding-right: 1.5em;
   padding-left: 1.5em;
 }
+
+
+span{
+  font-family: Bungee, sans-serif;
+}
+  
+

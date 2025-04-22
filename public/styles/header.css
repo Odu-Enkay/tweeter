@@ -1,0 +1,9 @@
+header{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: orange;
+  background-image: url('/public/images/binding-dark.png');;
+}
+
