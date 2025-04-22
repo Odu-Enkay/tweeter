@@ -12,6 +12,8 @@ nav{
 
 span{
   font-family: Bungee, sans-serif;
+  display: flex;
+  flex-direction: column;
 }
   
 
