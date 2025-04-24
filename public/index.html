@@ -79,17 +79,15 @@
       <section class="tweet-container">
         <article class="tweet">     
         <header>
-          <h1>POST #${user} : ${name, avatars, handle}</h1>
-          </header>
-
-          <p>${sanitizeValue(content)}</p>          
+          <h1>const { user: { name, avatars, handle }, content, created_at } = tweet;.</h1>
+          </header>         
       </article>
       <footer>
-        <h2>created at: ${created_at}</h2>
-        <div>   
+        
+        <!--<div>   
           <i class="fa-solid fa-retweet"></i>
           <i class="fa-solid fa-heart"></i>
-          <i class="fa-solid fa-flag"></i>  </div>
+          <i class="fa-solid fa-flag"></i>  </div>-->
       
       </footer>  
       </section>
