@@ -12,15 +12,17 @@ new-tweet {
 }
 
 .form textarea{
-  width: 100%;
+  width: 90%;
   overflow: auto;
   border: none;
   border-bottom: 5px solid #333;
   background: transparent;
+  margin-left: 10px;
 }
 
 .form-footer{
   display: flex;
+  width: 90%;
   justify-content: space-between;
   align-items: center;
   margin-top: 10px;
