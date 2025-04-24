@@ -1,3 +1,6 @@
+
+
+
 $(document).ready(function() {  // ensure DOM/HTML loads properly
   // --- our code goes here ---
   const maxChars = 140;
@@ -13,5 +16,27 @@ $(document).ready(function() {  // ensure DOM/HTML loads properly
         console.log('You have exceeded the maximum number of characters!')
       }
     });
-});
 
+    // ==== SUBMIT FORM ===
+  $(".form").on("submit", function(event) {
+    console.log('Button clicked, performing ajax call...');
+    event.preventDefault();
+
+    const formData = $(event.target).serialize();
+  
+    console.log(event);
+    $.ajax({
+      method: "POST",
+      url: "https://jsonplaceholder.typicode.com/posts",
+      data: formData,
+    })
+      .then((data) => {
+        const postElement = createPostElement(data);
+        $("main").prepend(postElement);
+        $("form").trigger("reset")
+        // $("input").val("")
+        // $("textarea").val("")
+        // $("select").val("")
+      });
+  })
+});

@@ -10,10 +10,10 @@ article.tweet{
   flex-direction: column;
   width: auto;
   height: auto;
-  border: 2px solid lime;
   font-family: sans-serif;
   margin: 10px;
   padding: 10px;
+  box-shadow:5px 5px 5px 5px gray;
   
 }
 
