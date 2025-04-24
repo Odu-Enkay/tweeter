@@ -42,22 +42,13 @@ article.tweet header img {
   margin-right: 10px;
 }
 
-/*
-article.tweet header h2, article.tweet header h4 {
-  font-weight: normal;
-  font-size: 1.1em;
-}
-
-article.tweet header h4 {
-  color: lightgrey;
-
-}*/
-
 article.tweet p {
   border-bottom: 3px solid black;
   padding: 10px 20px 30px 20px;
+  box-shadow: 0cqi;
 }
 
 .fa-solid:hover{
   background-color: orange;
+  font-style: oblique;
 }
