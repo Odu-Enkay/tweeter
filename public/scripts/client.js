@@ -15,10 +15,13 @@ const renderTweets = function(tweets) {
   // loops through tweets
   for (const tweet of tweets) {
     // calls createTweetElement for each tweet
-    const tweetElement = createTweetElement(tweet)
-  } 
+    const tweetElement = createTweetElement(tweet);
     // takes return value and appends it to the tweets container
-    $(".tweet-container").prepend(tweetElementElement);
+    $(".tweet-container").prepend(tweetElement);
+
+  } 
+    
+   
 }
 
 const createTweetElement = (tweet) => {
@@ -51,4 +54,4 @@ const $tweet = createTweetElement(tweetData);
 
 // Test / driver code (temporary)
 console.log($tweet); // to see what it looks like
-$('#tweets-container').append($tweet); 
+$('.tweets-container').append($tweet); 
