@@ -47,12 +47,30 @@ $(document).ready(() => {
       .then((response) => {
         console.log(response); // Log response for verification
         
-        loadTweets(); //reloads tweets;
+        //loadTweets(); //reloads tweets;
       })
       .catch((error) => {
         console.error("Error: ", error); // Log any errors
       });
   });
+});
+
+//========RELOADS TWEETS=======
+$('#tweet-form').on('submit', function(event) {
+  event.preventDefault();
+  
+  // Serialize form data
+  let formData = $(this).serialize();
+  
+  // Send POST request
+  $.post('/api/tweets', formData)
+    .done(function() {
+      // Clear tweet container
+      $('#tweet-container').empty();
+      
+      // Fetch and display tweets again
+      loadTweets();
+    });
 });
 
 //======FORM VALIDATION=====
