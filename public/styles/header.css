@@ -6,6 +6,5 @@ body > header{
   justify-content: center;
   background-color: orange;
   flex-direction: column;
-  background-image: url('/public/images/binding-dark.png');
 }
 

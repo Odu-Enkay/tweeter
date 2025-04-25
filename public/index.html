@@ -64,7 +64,7 @@
     <main class="container">
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
-        <form action="/api/tweets" method="post" class="form">
+        <form action="/api/tweets" method="post" id="tweet-form" class="form">
           <div class="form-input"><label for="tweet-text" class="form-label" >What are you humming about?
           </label>
           <textarea name="text" id="tweet-text" class="form-text"></textarea></div>
@@ -80,7 +80,7 @@
       <section id="tweet-container">  
         <article class="tweet">
             <header class="old-tweet-userinfo">
-              <img src="/images/profile-hex.png">
+              <img>
               <p>User</p>
               <p class="Username">@Username</p>
             </header>
