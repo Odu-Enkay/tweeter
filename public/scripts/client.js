@@ -67,7 +67,7 @@ $(document).ready(function() {
     $.ajax({
       url: '/api/tweets',
       method: 'GET',
-      data: FormData
+      data: 'json'
     })
     .then(function(tweets) {
       renderTweets(tweets);

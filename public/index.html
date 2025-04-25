@@ -20,10 +20,6 @@
 
     <script src="https://kit.fontawesome.com/0326d25d5f.js" crossorigin="anonymous"></script>
 
-    <!--TIMEAGO-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <script src="dist/timeago.min.js"></script>
 
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
@@ -79,14 +75,25 @@
           </div>
         </form>
       </section>
-      <section id="tweet-container">
-        <!--Tweet Container-->
+
+      <!--TWEET CONTAINER-->
+      <section id="tweet-container">  
         <article class="tweet">
-          <header>
-            
-          <footer>
-          <p></p>
-          </footer>
+            <header class="old-tweet-userinfo">
+              <img src="/images/profile-hex.png">
+              <p>User</p>
+              <p class="Username">@Username</p>
+            </header>
+            <span>
+            <p>
+            Tweet content
+            </span>
+            </p>
+           
+            <footer>
+            <p> Handler</p>
+            <p>created_at</p>
+            </footer>
         </article>
   
 </main>
