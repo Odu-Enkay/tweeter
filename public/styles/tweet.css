@@ -3,6 +3,7 @@ main.container{
   height: auto;
   border: 3px solid red;
   margin-top: 10px;
+
 }
 
 article.tweet{
@@ -27,7 +28,9 @@ article.tweet header{
   color: lightgrey;
   align-content: center;
   align-items: center;
+  font-family: sans-serif;
 }
+
 
 
 article.tweet header span {
