@@ -46,8 +46,8 @@ $(document).ready(() => {
     })
       .then((response) => {
         console.log(response); // Log response for verification
-        // Optionally reload tweets to reflect new submission
-        // loadTweets(); // Uncomment if you want to reload all tweets
+        
+        loadTweets(); //reloads tweets;
       })
       .catch((error) => {
         console.error("Error: ", error); // Log any errors
@@ -84,6 +84,7 @@ $(document).ready(() => {
     }
   });
 });
+
 
 
 
