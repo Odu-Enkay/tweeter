@@ -55,26 +55,36 @@ $(document).ready(() => {
   });
 });
 
-$(document).ready(function() {
-  $('#tweet-form').on('submit', function(event) {
-    const tweetContent = $('#tweet-text').val();
-    const maxLength = 140;
+//======FORM VALIDATION=====
 
-    if (tweetContent === '') {
+$(document).ready(() => {
+  const validateSubmission = function () {
+    const tweet = $("#tweet-text").val();
+    const maxChars = 140;
+
+    if (tweet === null || tweet === "") {
       alert('Please fill in the form before submitting!');
-      event.preventDefault(); // Prevent form submission
       return;
     }
 
-    if (tweetContent.length > maxLength) {
-      alert(`Tweet content cannot exceed ${maxLength} characters.`);
-      event.preventDefault(); // Prevent form submission
+    if (tweet.length > maxChars) {
+      alert(`Tweet content cannot exceed ${maxChars} characters., try Again!`);
       return;
     }
 
-    // If validation passes, the form will submit normally
+    return null;
+  };
+
+   //======== Form submission handler ========
+   $("#tweet-form").on("submit", function (event) {
+    const error = validateSubmission();
+    if (error) {
+      alert(error);
+      event.preventDefault();
+    }
   });
 });
 
-//======FORM VALIDATION=====
+
+
 
