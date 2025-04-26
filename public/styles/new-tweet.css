@@ -34,3 +34,14 @@ new-tweet {
   flex-direction: column;
   align-items:flex-start;
 }
+
+.error-message {
+  color: #ff0000; 
+  background-color: #ffe0e0;
+  border: 1px solid #ff8080; 
+  padding: 10px;
+  margin-bottom: 10px; 
+  border-radius: 5px; 
+  font-size: 0.9em; 
+  display: none; 
+}

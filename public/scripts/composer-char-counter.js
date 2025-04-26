@@ -1,7 +1,7 @@
 $(document).ready(function () {
   // ensure DOM/HTML loads properly
   // --- our code goes here ---
-  const maxChars = 140;
+  const maxChars = 10;
   $("#tweet-text").on("input", function () {
     //grap the element id
     const text = $(this).val(); // fecth the current value of the input in text area
@@ -17,26 +17,14 @@ $(document).ready(function () {
   });
 });
 
-// ==== SUBMIT FORM ===
+// ==== SUBMIT FORM ====
 /*$(document).ready(() => {
-  $(".no-javascript").remove();
-        
-  $("a").click((event) => event.preventDefault());
-      
-  $.ajax({
-    method: "GET",
-    url: "/api/tweets",
-    })
-    .then(function(tweets) { renderTweets(tweets);
-        })
-  $("form").on("submit", loadTweets);
-  });*/
-
-$(document).ready(() => {
   // Attach event listener to form submit
   $("#tweet-form").on("submit", function (event) {
     event.preventDefault(); // Prevent default form submission
-    console.log('Form submitted!');
+
+    // Reload any existing error first (slide up)
+    console.log("Form submitted!");
     const formData = $(this).serialize(); // Serialize form data
 
     $.ajax({
@@ -45,43 +33,40 @@ $(document).ready(() => {
       data: formData, // Serialized form data
     })
       .then((response) => {
-        console.log(response); // Log response for verification
-        
-        //loadTweets(); //reloads tweets;
+        console.log(response,'response!'); // Log response for verification
+
+        loadTweets(); // this should eloads tweets; but somehow not working for me
       })
       .catch((error) => {
         console.error("Error: ", error); // Log any errors
       });
   });
-});
+}); */
 
 //========RELOADS TWEETS=======
-$('#tweet-form').on('submit', function(event) {
+/*$("#tweet-form").on("submit", function (event) {
   event.preventDefault();
-  
+
   // Serialize form data
   let formData = $(this).serialize();
-  
+
   // Send POST request
-  $.post('/api/tweets', formData)
-    .done(function() {
-      // Clear tweet container
-      $('#tweet-container').empty();
-      
-      // Fetch and display tweets again
-      loadTweets();
-    });
-});
+  $.post("/api/tweets", formData).done(function () {
+   
+    $("#tweet-container").prepend(tweetElement); // remove this later if all starts working;
+    // Fetch and display tweets again
+    loadTweets(); // This is for reloading
+  });
+});*/
 
 //======FORM VALIDATION=====
-
-$(document).ready(() => {
+/*$(document).ready(() => {
   const validateSubmission = function () {
     const tweet = $("#tweet-text").val();
     const maxChars = 140;
 
     if (tweet === null || tweet === "") {
-      alert('Please fill in the form before submitting!');
+      alert("Please fill in the form before submitting!");
       return;
     }
 
@@ -91,19 +76,14 @@ $(document).ready(() => {
     }
 
     return null;
-  };
+  };*/
 
-   //======== Form submission handler ========
-   $("#tweet-form").on("submit", function (event) {
+  //======== Form submission handler ========
+ /* $("#tweet-form").on("submit", function (event) {
     const error = validateSubmission();
     if (error) {
       alert(error);
       event.preventDefault();
     }
   });
-});
-
-
-
-
-
+});*/

@@ -63,7 +63,8 @@
 
     <main class="container">
       <section class="new-tweet">
-        <h2>Compose Tweet</h2>
+        <h3 class="error-message">Error Message</h3>
+
         <form action="/api/tweets" method="post" id="tweet-form" class="form">
           <div class="form-input"><label for="tweet-text" class="form-label" >What are you humming about?
           </label>
@@ -71,7 +72,7 @@
           
           <div class="form-footer">
             <button type="submit" id="submit-btn">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
+            <output name="counter" class="counter" for="tweet-text">10</output>
           </div>
         </form>
       </section>
