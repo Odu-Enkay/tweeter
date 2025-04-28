@@ -44,14 +44,14 @@
       <span>
         <div class="new-tweet">
           <p class="new-tweet_text"><b>Write</b> a new Tweet</p>
-          <i class="fa-solid fa-angles-down wrap" ></i>
+          <a href="#tweet-container"><i class="fa-solid fa-angles-down wrap"></i></a>
         </div>
         
        
       </span>
     </nav>
 
-    <header>
+    <header id="top">
       <div id="img">
         <img src="/images/profile-hex.png">
       </div>
@@ -66,37 +66,35 @@
         <h3 class="error-message">Error Message</h3>
 
         <form action="/api/tweets" method="post" id="tweet-form" class="form">
-          <div class="form-input"><label for="tweet-text" class="form-label" >What are you humming about?
+          <div class="form-input"><label for="tweet-text" class="form-label" >
           </label>
-          <textarea name="text" id="tweet-text" class="form-text"></textarea></div>
+          <textarea name="text" id="tweet-text" class="form-text" placeholder="What are you humming about?"></textarea></div>
           
           <div class="form-footer">
             <button type="submit" id="submit-btn">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">10</output>
+            <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
       </section>
 
       <!--TWEET CONTAINER-->
-      <section id="tweet-container">  
-        <article class="tweet">
-            <header class="old-tweet-userinfo">
-              <img>
-              <p>User</p>
-              <p class="Username">@Username</p>
-            </header>
-            <span>
-            <p>
-            Tweet content
-            </span>
-            </p>
-           
-            <footer>
-            <p> Handler</p>
-            <p>created_at</p>
-            </footer>
-        </article>
-  
+      <section id="tweet-container">
+      <button id="to-top"><i class="fa-solid fa-angles-up"></i> </button> 
+      <!--<article class="tweet">
+        <header class="tweet-header">
+          <img>
+          <h2 class="user-name">User Name</h2>
+          <p class="user-handle">@userhandle</p>
+        </header>
+        <span> 
+          <p class="tweet-content">Tweet Content</p>
+        </span>
+        <footer class="tweet-footer">
+          <p>2024-07-24</p>
+          <p>font-awesome</p>
+        </footer>
+      </article> 
+      </section>-->
 </main>
   </body>
 </html>

@@ -1,7 +1,7 @@
 $(document).ready(function () {
   // ensure DOM/HTML loads properly
   // --- our code goes here ---
-  const maxChars = 10;
+  const maxChars = 140;
   $("#tweet-text").on("input", function () {
     //grap the element id
     const text = $(this).val(); // fecth the current value of the input in text area
@@ -16,74 +16,3 @@ $(document).ready(function () {
     }
   });
 });
-
-// ==== SUBMIT FORM ====
-/*$(document).ready(() => {
-  // Attach event listener to form submit
-  $("#tweet-form").on("submit", function (event) {
-    event.preventDefault(); // Prevent default form submission
-
-    // Reload any existing error first (slide up)
-    console.log("Form submitted!");
-    const formData = $(this).serialize(); // Serialize form data
-
-    $.ajax({
-      url: "/api/tweets", // Endpoint to post tweets
-      method: "POST", // Use POST method to send data
-      data: formData, // Serialized form data
-    })
-      .then((response) => {
-        console.log(response,'response!'); // Log response for verification
-
-        loadTweets(); // this should eloads tweets; but somehow not working for me
-      })
-      .catch((error) => {
-        console.error("Error: ", error); // Log any errors
-      });
-  });
-}); */
-
-//========RELOADS TWEETS=======
-/*$("#tweet-form").on("submit", function (event) {
-  event.preventDefault();
-
-  // Serialize form data
-  let formData = $(this).serialize();
-
-  // Send POST request
-  $.post("/api/tweets", formData).done(function () {
-   
-    $("#tweet-container").prepend(tweetElement); // remove this later if all starts working;
-    // Fetch and display tweets again
-    loadTweets(); // This is for reloading
-  });
-});*/
-
-//======FORM VALIDATION=====
-/*$(document).ready(() => {
-  const validateSubmission = function () {
-    const tweet = $("#tweet-text").val();
-    const maxChars = 140;
-
-    if (tweet === null || tweet === "") {
-      alert("Please fill in the form before submitting!");
-      return;
-    }
-
-    if (tweet.length > maxChars) {
-      alert(`Tweet content cannot exceed ${maxChars} characters., try Again!`);
-      return;
-    }
-
-    return null;
-  };*/
-
-  //======== Form submission handler ========
- /* $("#tweet-form").on("submit", function (event) {
-    const error = validateSubmission();
-    if (error) {
-      alert(error);
-      event.preventDefault();
-    }
-  });
-});*/

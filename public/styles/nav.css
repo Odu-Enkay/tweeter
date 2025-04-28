@@ -1,34 +1,32 @@
-nav{
+nav {
   height: 120px;
   display: flex;
-  background-color: #4056A1;
-  color:#FFFFFF;
+  background-color: #4056a1;
+  color: #ffffff;
   position: fixed;
   width: 100vw;
-  top:0;
+  top: 0;
   align-items: center;
   justify-content: space-between;
-  
 }
 
-
-span{
+span {
   display: flex;
   padding-right: 1.5em;
   padding-left: 1.5em;
 }
 
-.wrap{
+.wrap {
   color: red;
 }
-  
-.new-tweet{
+
+.new-tweet {
   font-family: sans-serif;
   display: flex;
   flex-direction: column;
   text-align: center;
 }
 
-.new-tweet_text{
+.new-tweet_text {
   margin-bottom: -0.1em;
 }

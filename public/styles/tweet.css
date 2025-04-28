@@ -1,9 +1,10 @@
 main.container{
   width: 90%;
   height: auto;
-  border: 3px solid red;
   margin-top: 10px;
-
+  box-shadow: 10px 5px 5px gray;
+  padding-bottom: 15px;
+  border-radius: 10px 10px 10px 10px;
 }
 
 article.tweet{
@@ -31,14 +32,13 @@ article.tweet header{
   font-family: sans-serif;
 }
 
-
-
 article.tweet header span {
   align-items: center;
   padding: 0;
   /*font-weight: normal;
   font-size: 1.1em; */
   color: #333;
+  
 }
 
 article.tweet header img {
@@ -49,9 +49,4 @@ article.tweet p {
   border-bottom: 3px solid black;
   padding: 10px 20px 30px 20px;
   box-shadow: 0cqi;
-}
-
-.fa-solid:hover{
-  background-color: orange;
-  font-style: oblique;
 }

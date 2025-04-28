@@ -5,35 +5,80 @@
  */
 $(document).ready(function () {
   //======== CREATE TWEETS ELEMENTS
-  const createTweetElement = (tweet) => {
-    const { user, content, created_at } = tweet;
+/*const createTweetElement = (tweet) => {
+  const { user, content, created_at } = tweet;
 
-    const $article = $("<article>");
-    const $username = $("<p>");
-    const $avatars = $(`<img src=${user.avatars}>`);
-    const $handle = $("<p>");
-    const $content = $("<p>");
-    const $created = $("<p>");
+  const $article = $("<article>");
+  const $avatar = $(`<img src=${user.avatars}>`);
+  const $username = $('<p class="old-tweet">');
+  const $handle = $('<p class="old-tweet">');
+  const $content = $("<p class='tweet-content'>");
+  const $created = $("<p>");
 
-    $username.text(`${user.name}`);
-    $handle.text(`${user.handle}`);
-    $content.text(content.text);
+  $username.text(`${user.name}`);
+  $handle.text(`${user.handle}`);
+  $content.text(content.text);
+  $created.text(
+    `Date created: ${Math.round(
+      (Date.now() - created_at) / 86400000
+    )}Days ago`
+  );
+  const $awesomeFonts = $("<p>").text("awwesome fonts"); // Added element for "awwesome fonts"
 
-    $created.text(
-      `Date created: ${Math.round(
-        (Date.now() - created_at) / 86400000
-      )}Days ago`
-    );
+  // Append the tweet content to match the HTML
 
-    // Append the tweets
-    $article.append($username);
-    $article.append($avatars);
-    $article.append($handle);
-    $article.append($content);
-    $article.append($created);
+  const $header = $("<header>").append($avatar, $username, $handle);
+  const $span = $("span").append($content);
+  const $footer = $("<footer>").append($created, $awesomeFonts);
 
-    return $article;
-  };
+  article.$header.append($avatar, $username, $handle);
+  $article.span.append($content);
+  $article.$footer.append($created, $awesomeFonts);
+
+  /*const $header = $(".tweet-header").append($avatar, $username, $handle);
+  const $span = $(".tweet-content").append($content);
+  const $footer = $(".tweet-footer").append($created, $awesomeFonts);
+  $article.append($header, $span, $footer);*/
+
+  //return $article;
+  
+//};
+
+//======== CREATE TWEETS ELEMENTS
+const createTweetElement = (tweet) => {
+  const { user, content, created_at } = tweet;
+
+  const $article = $("<article>");
+  const $header = $("<header>").addClass("user-tweet");
+  const $avatar = $("<img>").attr({
+    src: user.avatars,
+    alt: "User Avatar",
+  });
+  const $username = $("<p>").addClass("Username").text(user.name);
+  const $handle = $("<p>").addClass("avatar").text(user.handle); // Corrected class name
+  const $contentSpan = $("<span>");
+  const $contentText = $("<p>").text(content.text);
+  const $footer = $("<footer>");
+  const $created = $("<p>").text(
+    `${Math.round(
+      (Date.now() - created_at) / 86400000
+    )}Days ago`
+  );
+
+  // Add Font Awesome icons.
+  const $heartIcon = $('<i class="fas fa-heart"></i>').addClass('icon');
+  const $flagIcon = $('<i class="fas fa-flag"></i>').addClass('icon'); 
+  const $retweetIcon = $('<i class="fas fa-retweet"></i>').addClass('icon');
+
+  // Assemble the tweet structure to match the HTML
+  $header.append($avatar, $username, $handle); // Image, Username, Handle
+  $contentSpan.append($contentText); // Tweet Content
+  $footer.append($created, $heartIcon, $flagIcon, $retweetIcon); 
+  $article.append($header, $contentSpan, $footer);
+
+  return $article;
+};
+
 
   //====== RENDER TWEETS ========
   const renderTweets = function (tweets) {
@@ -106,6 +151,24 @@ $(document).ready(function () {
         console.log("Error: ", error); // Log any errors
       });
   };
+
+  $("#to-top").on("click", (event) => {
+    event.preventDefault();
+
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    $("#tweet-text").focus();
+  })
+
+  function trackScroll() {
+    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+      $("#to-top").style.display = "block";
+    } else {
+      $("#to-top").style.display = "none";
+    }
+  }
+
+  window.onscroll = function() {trackScroll()};
 
   // Initial load of tweets when the document is ready
   loadTweets();
