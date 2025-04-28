@@ -30,3 +30,36 @@ span {
 .new-tweet_text {
   margin-bottom: -0.1em;
 }
+
+
+@media only screen and (min-width: 1024px) {
+  body {
+      display: flex;
+      flex-direction: row;
+    }
+  
+  .header {
+    width: 25%;
+    height: auto;
+    justify-content: flex-start; 
+  }
+  
+  .container {
+    width: 75%;
+  }
+  }
+
+@media only screen and (min-width: 768px) {
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  header {
+    width: 20%;
+    line-height: 400px;
+    }
+  .container {
+    width: 40.7%;    
+    }
+  
+  }
