@@ -19,9 +19,8 @@ $(document).ready(function () {
     const $contentSpan = $("<span>");
     const $contentText = $("<p>").text(content.text);
     const $footer = $("<footer>");
-    const $created = $("<p>").text(
-      `${Math.round((Date.now() - created_at) / 86400000)}Days ago`
-    );
+    const $created = $("<p>").text(timeago.format(tweet.created_at));
+
 
     // Add Font Awesome icons.
     const $heartIcon = $('<i class="fas fa-heart"></i>').addClass("icon");
@@ -39,11 +38,8 @@ $(document).ready(function () {
 
   //====== RENDER TWEETS ========
   const renderTweets = function (tweets) {
-    // loops through tweets
     for (const tweet of tweets) {
-      // calls createTweetElement for each tweet
       const tweetElement = createTweetElement(tweet);
-      // takes return value and prepends it to the tweets container
       $("#tweet-container").prepend(tweetElement);
     }
   };
@@ -79,30 +75,33 @@ $(document).ready(function () {
     $.ajax({
       url: "/api/tweets", // Endpoint to post tweets
       method: "POST", // POST method to send data
-      data: formData, 
+      data: formData,
     })
       .then((response) => {
-        console.log(response); // Log response for verification
-        loadTweets(); // Call this after successful submission to reload tweets
+        console.log(response);
         $("#tweet-form").trigger("reset");
-        //$tweetText.val(''); 
+        // calls createTweetElement for each tweet
+        const tweetElement = createTweetElement(response);
+        // takes return value and prepends it to the tweets container
+        $("#tweet-container").prepend(tweetElement);
+        //$tweetText.val('');
       })
 
       // Log any errors
       .catch((error) => {
-        console.error("Error: ", error); 
+        console.error("Error: ", error);
       });
   });
 
   //===== LOAD TWEET FUNCTION =======
   const loadTweets = function () {
     $.ajax({
-      url: "/api/tweets", // Endpoint to get tweets
-      method: "GET", 
-      dataType: "json", 
+      url: "/api/tweets",
+      method: "GET",
+      dataType: "json",
     })
       .then(function (tweets) {
-        renderTweets(tweets); // Function to render tweets
+        renderTweets(tweets);
       })
       .catch(function (error) {
         console.log("Error: ", error);
@@ -113,8 +112,9 @@ $(document).ready(function () {
   $("#to-top").on("click", (event) => {
     event.preventDefault();
 
-    document.body.scrollTop = 0; // For Safari
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    document.body.scrollTop = 0;
+    // For Chrome, Firefox, IE and Opera
+    document.documentElement.scrollTop = 0;
     $("#tweet-text").focus();
   });
 

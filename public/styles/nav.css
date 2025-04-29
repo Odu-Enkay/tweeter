@@ -56,10 +56,10 @@ span {
     width: 100%;
     max-width: 100%;
   }
-  .container {
+ /* .container {
     width: 100%;
     max-width: 100%;
-  }
+  }*/
 }
 
 @media only screen and (min-width: 1024px) {
