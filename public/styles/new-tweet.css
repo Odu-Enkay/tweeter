@@ -29,7 +29,7 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 10px;
-  font-family: 'Bungee', 'Source San 3';
+  font-family:  'Source San 3';
 }
 
 .form-input{
@@ -111,7 +111,7 @@
 }
 .icon:hover{
   color: burlywood;
-    box-shadow: #333;
+  cursor: pointer;
 }
 
 

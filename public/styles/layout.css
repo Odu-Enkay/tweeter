@@ -15,40 +15,14 @@ html {
  */
 
 body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   color: #545149;
   background-color: #f4f1ec;
-  font-size: 24px;
-  font-family: Bungee,'Source Sans 3', sans-serif;
+  font-size: 16px;
+  font-family: sans-serif;
   font-weight: 400;
   padding-top: 120px;
   background-image: url('/images/binding-dark.png');
 }
-
-
-                        
-
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
-main{
-  width: 90%;
-  margin: 0 auto;
-  background-color: inherit;
-  text-align:justify;
-}
-
-#to-top {
-  position: fixed;
-  bottom: 20px; 
-  right: 15px; 
-  z-index: 99; 
-  border: none; 
-  outline: none; 
-  background-color: #ff0000; 
-  color: #ffffff;
-  cursor: pointer;
-  width: 60px;
-  height: 60px;
-  border-radius: 30px;
-}
-

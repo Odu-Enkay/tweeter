@@ -8,6 +8,7 @@ nav {
   top: 0;
   align-items: center;
   justify-content: space-between;
+  font-family: Bungee,'Source Sans 3', sans-serif;
 }
 
 span {
@@ -17,7 +18,7 @@ span {
 }
 
 .wrap {
-  color: red;
+  color: #ff0000;
 }
 
 .new-tweet {
@@ -31,35 +32,50 @@ span {
   margin-bottom: -0.1em;
 }
 
-
-@media only screen and (min-width: 1024px) {
-  body {
-      display: flex;
-      flex-direction: row;
-    }
-  
-  .header {
-    width: 25%;
-    height: auto;
-    justify-content: flex-start; 
-  }
-  
-  .container {
-    width: 75%;
-  }
-  }
+#to-top {
+  display: none;
+  position: fixed;
+  bottom: 5px; 
+  right: 10px; 
+  z-index: 99; 
+  border: none; 
+  outline: none;
+  background-color: #ff0000; 
+  color: #ffffff;
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+}
 
 @media only screen and (min-width: 768px) {
   body {
-    display: flex;
     flex-direction: column;
   }
-  header {
-    width: 20%;
-    line-height: 400px;
-    }
-  .container {
-    width: 40.7%;    
-    }
-  
+  body > header {
+    width: 100%;
+    max-width: 100%;
   }
+  .container {
+    width: 100%;       
+    max-width: 100%;       
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  body {
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: space-between;
+  }
+  
+  body > header {
+    width: 29%;
+    max-width: 29%;
+  }
+  
+  .container {
+    width: 70%;
+    max-width: 70%;
+  }
+}

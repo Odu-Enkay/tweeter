@@ -1,5 +1,4 @@
-body > header{
-  width: 100%;
+body > header {
   height: 400px;
   display: flex;
   align-items: center;

@@ -5,44 +5,6 @@
  */
 $(document).ready(function () {
   //======== CREATE TWEETS ELEMENTS
-/*const createTweetElement = (tweet) => {
-  const { user, content, created_at } = tweet;
-
-  const $article = $("<article>");
-  const $avatar = $(`<img src=${user.avatars}>`);
-  const $username = $('<p class="old-tweet">');
-  const $handle = $('<p class="old-tweet">');
-  const $content = $("<p class='tweet-content'>");
-  const $created = $("<p>");
-
-  $username.text(`${user.name}`);
-  $handle.text(`${user.handle}`);
-  $content.text(content.text);
-  $created.text(
-    `Date created: ${Math.round(
-      (Date.now() - created_at) / 86400000
-    )}Days ago`
-  );
-  const $awesomeFonts = $("<p>").text("awwesome fonts"); // Added element for "awwesome fonts"
-
-  // Append the tweet content to match the HTML
-
-  const $header = $("<header>").append($avatar, $username, $handle);
-  const $span = $("span").append($content);
-  const $footer = $("<footer>").append($created, $awesomeFonts);
-
-  article.$header.append($avatar, $username, $handle);
-  $article.span.append($content);
-  $article.$footer.append($created, $awesomeFonts);
-
-  /*const $header = $(".tweet-header").append($avatar, $username, $handle);
-  const $span = $(".tweet-content").append($content);
-  const $footer = $(".tweet-footer").append($created, $awesomeFonts);
-  $article.append($header, $span, $footer);*/
-
-  //return $article;
-  
-//};
 
 //======== CREATE TWEETS ELEMENTS
 const createTweetElement = (tweet) => {
@@ -99,7 +61,7 @@ const createTweetElement = (tweet) => {
     // =========== FORM VALIDATION ============
     const $errorMessage = $(".error-message");
     const tweet = $("#tweet-text").val();
-    const maxChars = 10;
+    const maxChars = 140;
     let error = null;
     $errorMessage.slideUp();
 
@@ -161,14 +123,14 @@ const createTweetElement = (tweet) => {
   })
 
   function trackScroll() {
-    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-      $("#to-top").style.display = "block";
+    if (document.body.scrollTop > 5 || document.documentElement.scrollTop > 5) {
+      document.getElementById("to-top").style.display = "block";
     } else {
-      $("#to-top").style.display = "none";
+      document.getElementById("to-top").style.display = "none";
     }
   }
 
-  window.onscroll = function() {trackScroll()};
+  window.onscroll = function() {trackScroll()}; 
 
   // Initial load of tweets when the document is ready
   loadTweets();
