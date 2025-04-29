@@ -51,12 +51,13 @@
 }
 
 #tweet-container article {
-  background-color: #f0f8e7;
+  background-color: #f4f1ec; /*#f0f8e7;*/
   border: 2px solid black;
   padding: 15px;
   margin-bottom: 10px;
   margin-left: 15px;
   margin-right: 20px;
+  
 }
 
 #tweet-container article:hover{
@@ -72,7 +73,7 @@
 }
 
 
-.Username {
+.username {
   font-size: 1.1rem;
   font-weight: bold;
   margin-right: auto;

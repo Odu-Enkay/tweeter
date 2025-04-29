@@ -6,7 +6,9 @@
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -24,5 +26,4 @@ body {
   font-family: sans-serif;
   font-weight: 400;
   padding-top: 120px;
-  background-image: url('/images/binding-dark.png');
 }

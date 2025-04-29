@@ -7,34 +7,50 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
 
     <!-- External CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      type="text/css"
+    />
 
     <!--GOOGLE FONTS - BUNGEE/SOURCE SANS 3-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
 
     <!--FONT-AWESOME!-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
-    <script src="https://kit.fontawesome.com/0326d25d5f.js" crossorigin="anonymous"></script>
-
+    <script
+      src="https://kit.fontawesome.com/0326d25d5f.js"
+      crossorigin="anonymous"
+    ></script>
 
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/nav.css" type="text/css"/>
-    <link rel="stylesheet" href="/styles/header.css" type="text/css"/>
-    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css"/>
-    <link rel="stylesheet" href="/styles/tweet.css" type="text/css"/>
-
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
-    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+    <script
+      type="text/javascript"
+      src="/scripts/composer-char-counter.js"
+    ></script>
   </head>
 
   <body>
@@ -44,18 +60,18 @@
       <span>
         <div class="new-tweet">
           <p class="new-tweet_text"><b>Write</b> a new Tweet</p>
-          <a href="#tweet-container"><i class="fa-solid fa-angles-down wrap"></i></a>
+          <a href="#tweet-container"
+            ><i class="fa-solid fa-angles-down wrap"></i
+          ></a>
         </div>
-        
-       
       </span>
     </nav>
 
     <header id="top">
       <div id="img">
-        <img src="/images/profile-hex.png">
+        <img src="/images/profile-hex.png" />
       </div>
-      <br>
+      <br />
       <div>
         <h2>Nkiruka Odu</h2>
       </div>
@@ -66,10 +82,16 @@
         <h3 class="error-message">Error Message</h3>
 
         <form action="/api/tweets" method="post" id="tweet-form" class="form">
-          <div class="form-input"><label for="tweet-text" class="form-label" >
-          </label>
-          <textarea name="text" id="tweet-text" class="form-text" placeholder="What are you humming about?"></textarea></div>
-          
+          <div class="form-input">
+            <label for="tweet-text" class="form-label"> </label>
+            <textarea
+              name="text"
+              id="tweet-text"
+              class="form-text"
+              placeholder="What are you humming about?"
+            ></textarea>
+          </div>
+
           <div class="form-footer">
             <button type="submit" id="submit-btn">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
@@ -79,7 +101,7 @@
 
       <!--TWEET CONTAINER-->
       <section id="tweet-container"></section>
-      <button id="to-top"><i class="fa-solid fa-angles-up"></i> </button> 
+      <button id="to-top"><i class="fa-solid fa-angles-up"></i></button>
       <!--<article class="tweet">
         <header class="tweet-header">
           <img>
@@ -95,6 +117,6 @@
         </footer>
       </article> 
       </section>-->
-</main>
+    </main>
   </body>
 </html>

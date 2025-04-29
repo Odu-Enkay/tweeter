@@ -4,52 +4,46 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(document).ready(function () {
-  //======== CREATE TWEETS ELEMENTS
+  //======== CREATE TWEETS ELEMENTS ======
+  const createTweetElement = (tweet) => {
+    const { user, content, created_at } = tweet;
 
-//======== CREATE TWEETS ELEMENTS
-const createTweetElement = (tweet) => {
-  const { user, content, created_at } = tweet;
+    const $article = $("<article>");
+    const $header = $("<header>").addClass("user-tweet");
+    const $avatar = $("<img>").attr({
+      src: user.avatars,
+      alt: "User Avatar",
+    });
+    const $username = $("<p>").addClass("username").text(user.name);
+    const $handle = $("<p>").addClass("avatar").text(user.handle);
+    const $contentSpan = $("<span>");
+    const $contentText = $("<p>").text(content.text);
+    const $footer = $("<footer>");
+    const $created = $("<p>").text(
+      `${Math.round((Date.now() - created_at) / 86400000)}Days ago`
+    );
 
-  const $article = $("<article>");
-  const $header = $("<header>").addClass("user-tweet");
-  const $avatar = $("<img>").attr({
-    src: user.avatars,
-    alt: "User Avatar",
-  });
-  const $username = $("<p>").addClass("Username").text(user.name);
-  const $handle = $("<p>").addClass("avatar").text(user.handle); // Corrected class name
-  const $contentSpan = $("<span>");
-  const $contentText = $("<p>").text(content.text);
-  const $footer = $("<footer>");
-  const $created = $("<p>").text(
-    `${Math.round(
-      (Date.now() - created_at) / 86400000
-    )}Days ago`
-  );
+    // Add Font Awesome icons.
+    const $heartIcon = $('<i class="fas fa-heart"></i>').addClass("icon");
+    const $flagIcon = $('<i class="fas fa-flag"></i>').addClass("icon");
+    const $retweetIcon = $('<i class="fas fa-retweet"></i>').addClass("icon");
 
-  // Add Font Awesome icons.
-  const $heartIcon = $('<i class="fas fa-heart"></i>').addClass('icon');
-  const $flagIcon = $('<i class="fas fa-flag"></i>').addClass('icon'); 
-  const $retweetIcon = $('<i class="fas fa-retweet"></i>').addClass('icon');
+    // Assemble the tweet structure to match the HTML
+    $header.append($avatar, $username, $handle);
+    $contentSpan.append($contentText);
+    $footer.append($created, $heartIcon, $flagIcon, $retweetIcon);
+    $article.append($header, $contentSpan, $footer);
 
-  // Assemble the tweet structure to match the HTML
-  $header.append($avatar, $username, $handle); // Image, Username, Handle
-  $contentSpan.append($contentText); // Tweet Content
-  $footer.append($created, $heartIcon, $flagIcon, $retweetIcon); 
-  $article.append($header, $contentSpan, $footer);
-
-  return $article;
-};
-
+    return $article;
+  };
 
   //====== RENDER TWEETS ========
   const renderTweets = function (tweets) {
     // loops through tweets
-    console.log(tweets);
     for (const tweet of tweets) {
       // calls createTweetElement for each tweet
       const tweetElement = createTweetElement(tweet);
-      // takes return value and appends it to the tweets container
+      // takes return value and prepends it to the tweets container
       $("#tweet-container").prepend(tweetElement);
     }
   };
@@ -84,17 +78,19 @@ const createTweetElement = (tweet) => {
     // Send POST request
     $.ajax({
       url: "/api/tweets", // Endpoint to post tweets
-      method: "POST", // Use POST method to send data
-      data: formData, // Serialized form data
+      method: "POST", // POST method to send data
+      data: formData, 
     })
       .then((response) => {
-        console.log(response, "response!"); // Log response for verification
+        console.log(response); // Log response for verification
         loadTweets(); // Call this after successful submission to reload tweets
         $("#tweet-form").trigger("reset");
-        //$tweetText.val(''); // Clear the textarea after submission
+        //$tweetText.val(''); 
       })
+
+      // Log any errors
       .catch((error) => {
-        console.error("Error: ", error); // Log any errors
+        console.error("Error: ", error); 
       });
   });
 
@@ -102,25 +98,25 @@ const createTweetElement = (tweet) => {
   const loadTweets = function () {
     $.ajax({
       url: "/api/tweets", // Endpoint to get tweets
-      method: "GET", // Use GET method to fetch data
-      dataType: "json", // Expecting JSON response
+      method: "GET", 
+      dataType: "json", 
     })
       .then(function (tweets) {
-        console.log(tweets, "unsuccess"); // Log the tweets to verify
         renderTweets(tweets); // Function to render tweets
       })
       .catch(function (error) {
-        console.log("Error: ", error); // Log any errors
+        console.log("Error: ", error);
       });
   };
 
+  //=====SCROLL TOP BTN =======
   $("#to-top").on("click", (event) => {
     event.preventDefault();
 
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     $("#tweet-text").focus();
-  })
+  });
 
   function trackScroll() {
     if (document.body.scrollTop > 5 || document.documentElement.scrollTop > 5) {
@@ -130,7 +126,9 @@ const createTweetElement = (tweet) => {
     }
   }
 
-  window.onscroll = function() {trackScroll()}; 
+  window.onscroll = function () {
+    trackScroll();
+  };
 
   // Initial load of tweets when the document is ready
   loadTweets();
