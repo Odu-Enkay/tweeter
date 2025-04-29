@@ -19,15 +19,15 @@ The following shoult be installed to run the tweeter app
 ## How the App works
 - Open the terminal and type `npm run local` command and run `http://localhost:8080/` on the browser
 - Type your tweet on the textarea and submit
-- Th app shows the tweet contents with ther user details and time of tweeting.
+- The app shows the tweet contents with ther user details and time of tweeting.
 
 ## Final Product
 
-!["Screenshot of Tweets"]
-!["Screenshot Tweets for mobile"](https://github.com/lighthouse-labs/tinyapp/blob/master/docs/register-page.png)
+!["Screenshot of Tweets for large screens"](https://github.com/Odu-Enkay/tweeter/blob/main/public/docs/tweeter1.png)
+!["Screenshot of Tweets for mobile devices"](https://github.com/Odu-Enkay/tweeter/blob/main/public/docs/tweeter2.png)
 
 ## Stretch
-- Impproved user experience by implementing scrollTop button - when being clicked takes the user to the textarea to easily tweet.
+- Impproved user experience by implementing scrollTop button - when being clicked takes the user to the textarea for easy navigation.
 
 
 
