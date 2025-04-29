@@ -27,7 +27,7 @@ The following shoult be installed to run the tweeter app
 !["Screenshot of Tweets for mobile devices"](https://github.com/Odu-Enkay/tweeter/blob/main/public/docs/tweeter2.png)
 
 ## Stretch
-- Impproved user experience by implementing scrollTop button - when being clicked takes the user to the textarea for easy navigation.
+- Impproved user experience by implementing Toggle Button - If the user clicks this button they are brought back up to the top of the page.
 
 
 
