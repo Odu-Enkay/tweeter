@@ -6,7 +6,7 @@
 $(document).ready(function () {
   //======== CREATE TWEETS ELEMENTS ======
   const createTweetElement = (tweet) => {
-    const { user, content, created_at } = tweet;
+    const { user, content } = tweet;
 
     const $article = $("<article>");
     const $header = $("<header>").addClass("user-tweet");
@@ -21,8 +21,6 @@ $(document).ready(function () {
     const $footer = $("<footer>");
     const $created = $("<p>").text(timeago.format(tweet.created_at));
 
-
-    // Add Font Awesome icons.
     const $heartIcon = $('<i class="fas fa-heart"></i>').addClass("icon");
     const $flagIcon = $('<i class="fas fa-flag"></i>').addClass("icon");
     const $retweetIcon = $('<i class="fas fa-retweet"></i>').addClass("icon");
@@ -44,50 +42,52 @@ $(document).ready(function () {
     }
   };
 
-  //======== SUBMIT TWEET FORM ============
-  $("#tweet-form").on("submit", function (event) {
-    event.preventDefault(); // Prevent default form submission
-
-    // =========== FORM VALIDATION ============
+  // =========== FORM VALIDATION ============
+  function validateTweet(tweetText) {
     const $errorMessage = $(".error-message");
-    const tweet = $("#tweet-text").val();
+    const trimmedTweet = tweetText.trim();
     const maxChars = 140;
     let error = null;
     $errorMessage.slideUp();
 
-    if (!tweet || tweet.length === 0) {
+    if (!trimmedTweet || trimmedTweet.length === 0) {
       error = "Please fill in the form before submitting";
     }
 
-    if (tweet.length > maxChars) {
+    if (trimmedTweet.length > maxChars) {
       error = `Tweet content cannot exceed ${maxChars} characters. Try again!`;
     }
 
     if (error) {
       $errorMessage.text(error).slideDown();
+      return false;
+    }
+
+    return true;
+  }
+
+  //======== SUBMIT TWEET FORM ============
+  $("#tweet-form").on("submit", function (event) {
+    event.preventDefault(); // Prevent default form submission
+
+    const tweetText = $("#tweet-text").val();
+    if (!validateTweet(tweetText)) {
       return;
     }
 
     // Serialize form data after validation passes
     const formData = $(this).serialize();
 
-    // Send POST request
     $.ajax({
-      url: "/api/tweets", // Endpoint to post tweets
-      method: "POST", // POST method to send data
+      url: "/api/tweets",
+      method: "POST",
       data: formData,
     })
       .then((response) => {
-        console.log(response);
         $("#tweet-form").trigger("reset");
-        // calls createTweetElement for each tweet
         const tweetElement = createTweetElement(response);
-        // takes return value and prepends it to the tweets container
         $("#tweet-container").prepend(tweetElement);
-        //$tweetText.val('');
       })
-
-      // Log any errors
       .catch((error) => {
         console.error("Error: ", error);
       });
@@ -112,9 +112,13 @@ $(document).ready(function () {
   $("#to-top").on("click", (event) => {
     event.preventDefault();
 
-    document.body.scrollTop = 0;
-    // For Chrome, Firefox, IE and Opera
-    document.documentElement.scrollTop = 0;
+    $("html, body").animate(
+      {
+        scrollTop: 0,
+      },
+      800
+    );
+
     $("#tweet-text").focus();
   });
 
